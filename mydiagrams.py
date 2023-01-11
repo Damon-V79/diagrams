@@ -10,7 +10,7 @@ from diagrams.onprem.network import Internet
 from diagrams.onprem.queue import Kafka
 from other import Infinispan, Ibmmq
 
-with Diagram("Web services infrastructure Diagram", show=False, direction='TB'):
+with Diagram("Web services infrastructure Diagram", show=False, direction='TB', outformat=["png", "dot"]):
     user = User("User")
     support = User("Support")
     internet = Internet("Internet")
