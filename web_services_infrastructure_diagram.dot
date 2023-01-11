@@ -1,0 +1,384 @@
+digraph "Web services infrastructure Diagram" {
+	graph [bb="0,0,1721.5,1199",
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=15,
+		label="Web services infrastructure Diagram",
+		lheight=0.24,
+		lp="860.75,12.5",
+		lwidth=3.81,
+		nodesep=0.60,
+		pad=2.0,
+		rankdir=TB,
+		ranksep=0.75,
+		splines=ortho
+	];
+	node [fixedsize=true,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		height=1.4,
+		imagescale=true,
+		label="\N",
+		labelloc=b,
+		shape=box,
+		style=rounded,
+		width=1.4
+	];
+	edge [color="#7B8894"];
+	subgraph "cluster_Own infrastructure" {
+		graph [bb="109.5,33,1713.5,1037",
+			bgcolor="#E5F5FD",
+			fontname="Sans-Serif",
+			fontsize=12,
+			label="Own infrastructure",
+			labeljust=l,
+			lheight=0.18,
+			lp="174,1026.5",
+			lwidth=1.57,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		subgraph "cluster_service node
+(Datacenter 'DC1')" {
+			graph [bb="154.5,232,282.5,668",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="service node
+(Datacenter 'DC1')",
+				labeljust=l,
+				lheight=0.36,
+				lp="218.5,651",
+				lwidth=1.56,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"86b8afc70df046ac97ab29cd9d918e1f"	[height=2.3056,
+				image="/usr/local/lib/python3.8/site-packages/resources/aws/compute/ec2.png",
+				label="Server node 1
+(Scala)",
+				pos="223.5,543",
+				shape=none,
+				width=1.4028];
+			d631629b8c374beb908bfe100d5632eb	[height=2.3056,
+				image="/code/resources/other/infinispan.png",
+				label="Distributed node cache
+(Infinispan)",
+				pos="213.5,323",
+				shape=none,
+				width=1.4028];
+			"86b8afc70df046ac97ab29cd9d918e1f" -> d631629b8c374beb908bfe100d5632eb	[dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				pos="e,218.5,406.29 218.5,459.83 218.5,459.83 218.5,416.29 218.5,416.29"];
+		}
+		subgraph "cluster_service node
+(Datacenter 'DC2')" {
+			graph [bb="1577.5,232,1705.5,668",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="service node
+(Datacenter 'DC2')",
+				labeljust=l,
+				lheight=0.36,
+				lp="1641.5,651",
+				lwidth=1.56,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"1005631dfc5a4c52b63ebb7d54a0cb27"	[height=2.3056,
+				image="/usr/local/lib/python3.8/site-packages/resources/aws/compute/ec2.png",
+				label="Server node 2
+(Scala)",
+				pos="1636.5,543",
+				shape=none,
+				width=1.4028];
+			"25ec7c27042b45b7a56f52b2fc2837b9"	[height=2.3056,
+				image="/code/resources/other/infinispan.png",
+				label="Distributed node cache
+(Infinispan)",
+				pos="1646.5,323",
+				shape=none,
+				width=1.4028];
+			"1005631dfc5a4c52b63ebb7d54a0cb27" -> "25ec7c27042b45b7a56f52b2fc2837b9"	[dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				pos="e,1641.5,406.29 1641.5,459.83 1641.5,459.83 1641.5,416.29 1641.5,416.29"];
+		}
+		subgraph cluster_Streams {
+			graph [bb="920.5,41,1182.5,215",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label=Streams,
+				labeljust=l,
+				lheight=0.18,
+				lp="953.5,204.5",
+				lwidth=0.69,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			bd7ba9a98b4441f197d3dbbbcae24c0d	[height=1.9028,
+				image="/usr/local/lib/python3.8/site-packages/resources/onprem/queue/kafka.png",
+				label=Kafka,
+				pos="1123.5,117.5",
+				shape=none,
+				width=1.4028];
+			c1256a2806dc4abba80fea3e4c0de13a	[height=1.9028,
+				image="/code/resources/other/ibmmq.png",
+				label=MQ,
+				pos="979.5,117.5",
+				shape=none,
+				width=1.4028];
+		}
+		subgraph cluster_Databases {
+			graph [bb="344.5,232,750.5,435",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label=Databases,
+				labeljust=l,
+				lheight=0.18,
+				lp="384.5,424.5",
+				lwidth=0.89,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"7fdf9e68a43f4fefa81b6b42b4b80e9e"	[height=2.3056,
+				image="/usr/local/lib/python3.8/site-packages/resources/onprem/database/cassandra.png",
+				label="NoSQL DB
+(Cassandra)",
+				pos="403.5,323",
+				shape=none,
+				width=1.4028];
+			"88d485363c2042d2b417f1a0c7c6b58b"	[height=2.3056,
+				image="/usr/local/lib/python3.8/site-packages/resources/onprem/database/postgresql.png",
+				label="SQL DB
+(Postgres)",
+				pos="547.5,323",
+				shape=none,
+				width=1.4028];
+			d0f4078b8fd34372b55ec59c7fac129f	[height=2.3056,
+				image="/usr/local/lib/python3.8/site-packages/resources/onprem/inmemory/redis.png",
+				label="Cache
+(Redis)",
+				pos="691.5,323",
+				shape=none,
+				width=1.4028];
+		}
+		subgraph "cluster_Other services" {
+			graph [bb="776.5,246.5,1326.5,420.5",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="Other services",
+				labeljust=l,
+				lheight=0.18,
+				lp="828.5,410",
+				lwidth=1.22,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"933a3c669f554a428c4942a1b5ba2924"	[height=1.9028,
+				image="/usr/local/lib/python3.8/site-packages/resources/aws/compute/ec2.png",
+				label="",
+				pos="1123.5,323",
+				shape=none,
+				width=1.4028];
+			d24934d531804d469a7fccadba3c6145	[height=1.9028,
+				image="/usr/local/lib/python3.8/site-packages/resources/aws/compute/ec2.png",
+				label="",
+				pos="1267.5,323",
+				shape=none,
+				width=1.4028];
+			"8e080186bf374185a82f6e8a5b201b5b"	[height=1.9028,
+				image="/usr/local/lib/python3.8/site-packages/resources/aws/compute/ec2.png",
+				label="",
+				pos="979.5,323",
+				shape=none,
+				width=1.4028];
+			"9d8f105979604d4f8675418ee4312e6b"	[height=1.9028,
+				image="/usr/local/lib/python3.8/site-packages/resources/aws/compute/ec2.png",
+				label="",
+				pos="835.5,323",
+				shape=none,
+				width=1.4028];
+		}
+		subgraph "cluster_SSO Infrastructure" {
+			graph [bb="1347.5,246.5,1475.5,420.5",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="SSO Infrastructure",
+				labeljust=l,
+				lheight=0.18,
+				lp="1411.5,410",
+				lwidth=1.56,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"3f430cc39a8d46879a0a43bc3a28988e"	[height=1.9028,
+				image="/usr/local/lib/python3.8/site-packages/resources/aws/compute/ec2.png",
+				label=SSO,
+				pos="1411.5,323",
+				shape=none,
+				width=1.4028];
+		}
+		"86b8afc70df046ac97ab29cd9d918e1f" -> bd7ba9a98b4441f197d3dbbbcae24c0d	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,1106.7,186.14 269,459.73 269,361.97 269,213 269,213 269,213 1106.7,213 1106.7,213 1106.7,213 1106.7,196.14 1106.7,196.14"];
+		"86b8afc70df046ac97ab29cd9d918e1f" -> c1256a2806dc4abba80fea3e4c0de13a	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,928.79,94 266.5,459.86 266.5,330.07 266.5,94 266.5,94 266.5,94 918.79,94 918.79,94"];
+		"86b8afc70df046ac97ab29cd9d918e1f" -> "7fdf9e68a43f4fefa81b6b42b4b80e9e"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,352.84,323 271.5,459.83 271.5,397.53 271.5,323 271.5,323 271.5,323 342.84,323 342.84,323"];
+		"86b8afc70df046ac97ab29cd9d918e1f" -> "933a3c669f554a428c4942a1b5ba2924"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,1123.5,391.5 274.14,515 464.1,515 1123.5,515 1123.5,515 1123.5,515 1123.5,401.5 1123.5,401.5"];
+		"86b8afc70df046ac97ab29cd9d918e1f" -> "3f430cc39a8d46879a0a43bc3a28988e"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,1411.5,391.7 274.17,543 500.92,543 1411.5,543 1411.5,543 1411.5,543 1411.5,401.7 1411.5,401.7"];
+		"1005631dfc5a4c52b63ebb7d54a0cb27" -> bd7ba9a98b4441f197d3dbbbcae24c0d	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,1174.3,117 1594,459.85 1594,335.88 1594,117 1594,117 1594,117 1184.3,117 1184.3,117"];
+		"1005631dfc5a4c52b63ebb7d54a0cb27" -> c1256a2806dc4abba80fea3e4c0de13a	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,996.33,186.3 1592,459.71 1592,371.24 1592,244 1592,244 1592,244 996.33,244 996.33,244 996.33,244 996.33,196.3 996.33,196.3"];
+		"1005631dfc5a4c52b63ebb7d54a0cb27" -> d0f4078b8fd34372b55ec59c7fac129f	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,742.27,398 1588,459.91 1588,427.52 1588,398 1588,398 1588,398 752.27,398 752.27,398"];
+		"1005631dfc5a4c52b63ebb7d54a0cb27" -> d24934d531804d469a7fccadba3c6145	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,1267.5,391.6 1586,487 1484.9,487 1267.5,487 1267.5,487 1267.5,487 1267.5,401.6 1267.5,401.6"];
+		"1005631dfc5a4c52b63ebb7d54a0cb27" -> "3f430cc39a8d46879a0a43bc3a28988e"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,1462.2,323 1590,459.83 1590,397.53 1590,323 1590,323 1590,323 1472.2,323 1472.2,323"];
+		ce85c992c1dc4484bb9247b741dca2ce	[height=1.9028,
+			image="/usr/local/lib/python3.8/site-packages/resources/onprem/monitoring/prometheus.png",
+			label=Prometheus,
+			pos="1001.5,748.5",
+			shape=none,
+			width=1.4028];
+		ce85c992c1dc4484bb9247b741dca2ce -> "86b8afc70df046ac97ab29cd9d918e1f"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,274.12,598 990.5,679.86 990.5,640.16 990.5,598 990.5,598 990.5,598 284.12,598 284.12,598"];
+		ce85c992c1dc4484bb9247b741dca2ce -> "1005631dfc5a4c52b63ebb7d54a0cb27"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,1586,570 1041,680 1041,629.66 1041,570 1041,570 1041,570 1576,570 1576,570"];
+		"226fdad1e37d48ffab07396d6965bf38"	[height=1.9028,
+			image="/usr/local/lib/python3.8/site-packages/resources/onprem/monitoring/grafana.png",
+			label=Grafana,
+			pos="1001.5,939.5",
+			shape=none,
+			width=1.4028];
+		"226fdad1e37d48ffab07396d6965bf38" -> ce85c992c1dc4484bb9247b741dca2ce	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,1001.5,817.22 1001.5,870.81 1001.5,870.81 1001.5,827.22 1001.5,827.22"];
+		"39939aa9cd564dbb85dc5b48df016f89"	[height=1.9028,
+			image="/usr/local/lib/python3.8/site-packages/resources/aws/network/elastic-load-balancing.png",
+			label="Load Balancer",
+			pos="223.5,748.5",
+			shape=none,
+			width=1.4028];
+		"39939aa9cd564dbb85dc5b48df016f89" -> "86b8afc70df046ac97ab29cd9d918e1f"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,206.67,626.28 206.67,679.79 206.67,679.79 206.67,636.28 206.67,636.28"];
+		"39939aa9cd564dbb85dc5b48df016f89" -> "1005631dfc5a4c52b63ebb7d54a0cb27"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,1636.5,626.09 240.33,679.86 240.33,664.67 240.33,653 240.33,653 240.33,653 1636.5,653 1636.5,653 1636.5,653 1636.5,636.09 1636.5,\
+636.09"];
+		"933a3c669f554a428c4942a1b5ba2924" -> c1256a2806dc4abba80fea3e4c0de13a	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,962.67,186.33 1140.3,254.32 1140.3,250.99 1140.3,249 1140.3,249 1140.3,249 962.67,249 962.67,249 962.67,249 962.67,196.33 962.67,\
+196.33"];
+		"9d8f105979604d4f8675418ee4312e6b" -> c1256a2806dc4abba80fea3e4c0de13a	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,928.73,140 835.5,254.34 835.5,202.41 835.5,140 835.5,140 835.5,140 918.73,140 918.73,140"];
+	}
+	a8e97362d6c243308275d14e3281c524	[height=1.9028,
+		image="/usr/local/lib/python3.8/site-packages/resources/onprem/client/user.png",
+		label=User,
+		pos="50.5,1130.5",
+		shape=none,
+		width=1.4028];
+	"22de1e7e12554c068574d2afe5a8c7bc"	[height=1.9028,
+		image="/usr/local/lib/python3.8/site-packages/resources/onprem/network/internet.png",
+		label=Internet,
+		pos="50.5,939.5",
+		shape=none,
+		width=1.4028];
+	a8e97362d6c243308275d14e3281c524 -> "22de1e7e12554c068574d2afe5a8c7bc"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,50.5,1008.2 50.5,1061.8 50.5,1061.8 50.5,1018.2 50.5,1018.2"];
+	"78c6a5409459423d846d770f039d74c2"	[height=1.9028,
+		image="/usr/local/lib/python3.8/site-packages/resources/onprem/client/user.png",
+		label=Support,
+		pos="1001.5,1130.5",
+		shape=none,
+		width=1.4028];
+	"78c6a5409459423d846d770f039d74c2" -> "226fdad1e37d48ffab07396d6965bf38"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,1001.5,1008.2 1001.5,1061.8 1001.5,1061.8 1001.5,1018.2 1001.5,1018.2"];
+	"22de1e7e12554c068574d2afe5a8c7bc" -> "39939aa9cd564dbb85dc5b48df016f89"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,223.5,817.01 101,939 152.07,939 223.5,939 223.5,939 223.5,939 223.5,827.01 223.5,827.01"];
+}
