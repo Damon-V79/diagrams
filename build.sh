@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t damonv79/diagrams:1.0 .
+docker build -t damonv79/diagrams:2.0 .
